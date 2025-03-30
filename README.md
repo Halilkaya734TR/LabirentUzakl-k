@@ -1,6 +1,6 @@
 # <center>Fikstür Oluşturma Ödevi</center>
 
-Kullanıcının sınırlar belirleyip kendi konumunu ve istediği kadar başka konumlar girerek kendisine olan uzaklıkları ve en yakın ve uzak olan konumları gösteren kod.
+Kullanıcının sınırlar belirleyip kendi konumunu ve istediği kadar başka konumlar girerek her konuma olan uzaklıkları, girdiği tespit mesafesinin kapsadığı konumları, en yakın ve en uzak olan konumları gösteren kod.
 
 ## Proje Gereksinimleri
 
