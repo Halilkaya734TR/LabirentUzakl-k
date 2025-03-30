@@ -6,6 +6,7 @@ int main()
     int bolgesayisi;
     int sinirx, siniry; //Sınırlar
     int konumx, konumy; //Konumumuz
+    int tespitmesafesi; //Tespit mesafesi
     struct konum // Diğer bölgelerin konumu ve mesafesi
     {
         int x;
@@ -62,6 +63,14 @@ int main()
 
     }
 
+    printf("Tespit mesafesi giriniz:");
+    scanf("%d",&tespitmesafesi);
+    
+    if(tespitmesafesi <= 0 || tespitmesafesi > sinirx || tespitmesafesi > siniry)
+    {
+        printf("Hata kodu 4:Tespit mesafesi negatif, 0 ya da sınırlardan büyük olamaz!");
+    }
+
     for(int i=0; i<bolgesayisi;i++) //Manhattan yöntemine göre mesafe bulur. Öklid de karekök alma mantığını çözemedim.
     {
         if(konumx > konumlar[i].x && konumy> konumlar[i].y)
@@ -89,6 +98,24 @@ int main()
     for(int i=0; i<bolgesayisi;i++) //Bölgeleri yazdırır.
     {
         printf("%d.Bölgeye uzaklık(%d,%d):%d \n",i+1,konumlar[i].x,konumlar[i].y,konumlar[i].mesafe);
+    }
+
+    printf("Tespit Alanı içinde olan bölgeler: \n");
+
+    int sayac=0;
+
+    for(int i=0; i<bolgesayisi;i++) //Tespit alanı içindeki bölgeleri yazdırır.
+    {
+        if(konumlar[i].mesafe <= tespitmesafesi)
+        {
+            printf("%d.Bölgeye uzaklık(%d,%d):%d \n",i+1,konumlar[i].x,konumlar[i].y,konumlar[i].mesafe);
+            sayac++; //Tespit alanında bölge varsa 1 artar
+        }
+    }
+
+    if(sayac == 0) //Tespit alanında bölge yoksa yazdırır.
+    {
+        printf("Tespit alanında olan bölge bulunmamaktadır! \n");
     }
 
     int enyakin[4]; //En yakın bölgenin verilerini yedeklemek için.
